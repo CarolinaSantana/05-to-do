@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TabsPage } from './../pages/tabs/tabs.page';
+import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
@@ -13,7 +13,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../pages/tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+          },
+          {
+            path: 'add/:listId',
+            loadChildren: () => import('../add/add.module').then( m => m.AddPageModule)
           }
         ]
       },
@@ -23,7 +27,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../pages/tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+          },
+          {
+            path: 'add/:listId',
+            loadChildren: () => import('../add/add.module').then( m => m.AddPageModule)
           }
         ]
       },
